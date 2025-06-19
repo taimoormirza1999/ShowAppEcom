@@ -23,23 +23,15 @@ struct SplashView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .clipped()
                     .ignoresSafeArea()  
-                Color.black.opacity(0.3)
+                Color.black.opacity(0.1)
                     .ignoresSafeArea()
                 
                 VStack {
-                    Image(systemName: "bag.fill")
-                        .font(.system(size: 80))
-                        .foregroundColor(.white)
                     
-                    Text("ShowApp Ecom")
-                        .font(.system(size: 32, weight: .bold))
+                    Text(AppConstants.Titles.appName)
+                        .scaledFont(.cereal(36, weight: .bold))
                         .foregroundColor(.white)
-                        .padding(.top, 20)
-                    
-                    Text("Your Shopping Destination")
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.white.opacity(0.8))
-                        .padding(.top, 5)
+                        .padding(.top, 28)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
@@ -56,6 +48,8 @@ struct SplashView: View {
                         self.isActive = true
                     }
                 }
+            }.navigationDestination(isPresented: $isActive) {
+                SignInView() // ← shown when isActive == true
             }
         }
     }

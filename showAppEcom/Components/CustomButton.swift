@@ -21,7 +21,7 @@ struct CustomButton: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 50)
                 .background(backgroundColor)
-                .cornerRadius(12)
+                .clipShape(Capsule())
         }
         .shadow(color: backgroundColor.opacity(0.3), radius: 8, x: 0, y: 4)
     }
@@ -42,7 +42,7 @@ struct CustomButtonSecondary: View {
                 .frame(height: 50)
                 .background(Color.clear)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 12)
+                  Capsule()
                         .stroke(borderColor, lineWidth: 2)
                 )
         }
@@ -69,7 +69,7 @@ struct CustomIconButton: View {
             .frame(maxWidth: .infinity)
             .frame(height: 50)
             .background(backgroundColor)
-            .cornerRadius(12)
+            .clipShape(Capsule())
         }
         .shadow(color: backgroundColor.opacity(0.3), radius: 8, x: 0, y: 4)
     }

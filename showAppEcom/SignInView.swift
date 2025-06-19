@@ -20,30 +20,31 @@ struct SignInView: View {
 //        }
 //    }
     var body: some View {
-    
-        ZStack {
-            LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
+        
+        
+        ZStack(alignment: .topLeading) {
             
-            VStack(spacing: 30) {
-                Spacer()
-                
-                // Logo/Icon
-                Image(systemName: "bag.fill")
-                    .font(.system(size: 60))
-                    .foregroundColor(.white)
-                
-//                Text("Welcome Back")
-//                    .font(.custom("AirbnbCerealWXBd", size: 28))
-//                    .foregroundColor(.white)
-                
-                Text("Welcome Back")
+            Color.lightFrameColor.ignoresSafeArea()
+            
+            Button(action: {
+                // your action
+            }) {
+                Image(systemName: "chevron.left")
+                    .foregroundColor(.lightSubText)
+                    .padding()
+            }
+            .padding(.top, UIScreen.main.bounds.height * 0.05)
+            .padding(.leading, 5)
+            Spacer().frame(height:40)
+
+            VStack(spacing: 30) {     
+                Text("Hello Again!")
                     .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 
-                Text("Sign in to continue")
+                Text("Welcome Back You’ve Been Missed!")
                     .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white.opacity(0.8))
+                    .foregroundColor(.lightSubText)
                 
                 Spacer().frame(height: 20)
                 
@@ -69,18 +70,18 @@ struct SignInView: View {
                             // Handle forgot password
                         }
                         .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(.lightSubText)
                     }
                 }
                 .padding(.horizontal, 30)
                 
-                Spacer().frame(height: 30)
+                Spacer().frame(height: 10)
                 
                 // Login Button
                 CustomButton(
                     title: "Sign In",
-                    backgroundColor: .white,
-                    foregroundColor: .blue,
+                    backgroundColor: .lightPrimary,
+                    foregroundColor: .white,
                     action: {
                         // Handle login
                         print("Login tapped with email: \(email)")

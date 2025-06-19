@@ -4,10 +4,13 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>DarlingtonDemo-z8xjG</string>
+		<string>AirbnbCereal_W_Blk.otf</string>
+		<string>AirbnbCereal_W_Bd.otf</string>
+		<string>AirbnbCereal_W_Bk.otf</string>
+		<string>AirbnbCereal_W_XBd.otf</string>
+		<string>AirbnbCereal_W_Lt.otf</string>
 		<string>AirbnbCereal_W_Md.otf</string>
 		<string></string>
-		<string>AirbnbCereal_W_XBd.otf</string>
 	</array>
 </dict>
 </plist>

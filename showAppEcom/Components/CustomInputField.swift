@@ -15,25 +15,55 @@ struct CustomInputField: View {
     var body: some View {
         HStack {
             Image(systemName: icon)
-                .foregroundColor(.white.opacity(0.7))
+                .foregroundColor(.lightSubText.opacity(0.7))
                 .frame(width: 20)
             
             TextField(placeholder, text: $text)
-                .foregroundColor(.white)
+                .foregroundColor(.lightSubText)
                 .placeholder(when: text.isEmpty) {
                     Text(placeholder)
-                        .foregroundColor(.white.opacity(0.7))
+                        .foregroundColor(.lightSubText.opacity(0.7))
                 }
         }
         .padding()
         .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white.opacity(1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                )
+            Capsule()
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
         )
+    }
+}
+
+struct CustomInputFieldWithLabel: View {
+    let placeholder: String
+    let label: String
+    @Binding var text: String
+    let icon: String
+    
+    var body: some View {
+        VStack(){
+            Text(label).scaledFont(.cereal(36, weight: .bold))
+                .foregroundColor(.black)
+                
+            HStack {
+                Image(systemName: icon)
+                    .foregroundColor(.lightSubText.opacity(0.7))
+                    .frame(width: 20)
+                
+                TextField(placeholder, text: $text)
+                    .foregroundColor(.lightSubText)
+                    .placeholder(when: text.isEmpty) {
+                        Text(placeholder)
+                            .foregroundColor(.lightSubText.opacity(0.7))
+                    }
+            }
+            .padding()
+            .background(
+                Capsule()
+                    .fill(Color.white)
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+            )
+        }
     }
 }
 
@@ -45,12 +75,12 @@ struct CustomPasswordField: View {
     var body: some View {
         HStack {
             Image(systemName: "lock.fill")
-                .foregroundColor(.white.opacity(0.7))
+                .foregroundColor(.lightSubText.opacity(0.7))
                 .frame(width: 20)
             
             if isSecured {
                 SecureField(placeholder, text: $text)
-                    .foregroundColor(.white)
+                    .foregroundColor(.lightSubText)
             } else {
                 TextField(placeholder, text: $text)
                     .foregroundColor(.white)
@@ -67,6 +97,7 @@ struct CustomPasswordField: View {
         .background(
             Capsule()
                 .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
                
         )
     }

@@ -13,21 +13,19 @@ struct SplashView: View {
     @State private var opacity = 0.5
     
     var body: some View {
-        if isActive {
-            SignInView()
-        } else {
+        NavigationView {
             ZStack {
                 Image("bg")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .clipped()
-                    .ignoresSafeArea()  
+                    .ignoresSafeArea()
+                
                 Color.black.opacity(0.1)
                     .ignoresSafeArea()
                 
                 VStack {
-                    
                     Text(AppConstants.Titles.appName)
                         .scaledFont(.cereal(36, weight: .bold))
                         .foregroundColor(.white)
@@ -42,14 +40,16 @@ struct SplashView: View {
                     }
                 }
             }
+            .navigationBarHidden(true)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         self.isActive = true
                     }
                 }
-            }.navigationDestination(isPresented: $isActive) {
-                SignInView() // ← shown when isActive == true
+            }
+            .navigationDestination(isPresented: $isActive) {
+                OnboardingView()
             }
         }
     }
@@ -59,4 +59,4 @@ struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         SplashView()
     }
-} 
+}

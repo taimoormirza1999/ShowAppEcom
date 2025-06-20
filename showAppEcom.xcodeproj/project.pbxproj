@@ -16,6 +16,7 @@
 		5063AE4D2E02A5BB009919BB /* showAppEcomUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063AE4C2E02A5BB009919BB /* showAppEcomUITestsLaunchTests.swift */; };
 		5063AE5B2E030C48009919BB /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063AE5A2E030C48009919BB /* SplashView.swift */; };
 		5063AE5D2E030C68009919BB /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063AE5C2E030C68009919BB /* SignInView.swift */; };
+		507532E72E0540F5003D7718 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507532E62E0540F5003D7718 /* OnboardingView.swift */; };
 		508770842E04039F00F1F136 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508770832E04039F00F1F136 /* AppColors.swift */; };
 		508770862E04095A00F1F136 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508770852E04095A00F1F136 /* Font+Extensions.swift */; };
 		5087708E2E040BDD00F1F136 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087708D2E040BDD00F1F136 /* AppConstants.swift */; };
@@ -61,6 +62,7 @@
 		5063AE592E02A961009919BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5063AE5A2E030C48009919BB /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		5063AE5C2E030C68009919BB /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		507532E62E0540F5003D7718 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		508770832E04039F00F1F136 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		508770852E04095A00F1F136 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 		508770872E0409A000F1F136 /* AirbnbCereal_W_Bk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AirbnbCereal_W_Bk.otf; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		5063AE2D2E02A5BA009919BB /* showAppEcom */ = {
 			isa = PBXGroup;
 			children = (
+				507532E62E0540F5003D7718 /* OnboardingView.swift */,
 				508770822E04038D00F1F136 /* Resources */,
 				509869312E03259D001700FB /* Fonts */,
 				5098692F2E03233E001700FB /* Components */,
@@ -333,6 +336,7 @@
 				5063AE312E02A5BA009919BB /* ContentView.swift in Sources */,
 				5087708E2E040BDD00F1F136 /* AppConstants.swift in Sources */,
 				5063AE2F2E02A5BA009919BB /* showAppEcomApp.swift in Sources */,
+				507532E72E0540F5003D7718 /* OnboardingView.swift in Sources */,
 				508770862E04095A00F1F136 /* Font+Extensions.swift in Sources */,
 				509869302E0323C0001700FB /* CustomButton.swift in Sources */,
 				5063AE5D2E030C68009919BB /* SignInView.swift in Sources */,

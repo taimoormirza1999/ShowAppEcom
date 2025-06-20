@@ -40,6 +40,7 @@ struct OnboardingView: View {
                 }
                 .tabViewStyle(PageTabViewStyle())
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .padding(.bottom, 40)
                 
                 VStack {
                     Spacer()
@@ -66,7 +67,7 @@ struct OnboardingView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 40)
+                .padding(.bottom, 80)
             }
         }
     }
@@ -78,42 +79,31 @@ struct OnboardingPage: View {
     let imageName: String
     
     var body: some View {
-        VStack(spacing: 10) {
-            ZStack {
-                Image("nike")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width * 0.8)
-                    .opacity(0.05) // like a faded watermark
-                    .offset(y: -40) // optional positioning
-                
-                // 2. Circle blur or dot
-                Image("circles")
-                    .resizable()
-                    .frame(width: 120, height: 120)
-                    .opacity(0.2)
-                    .offset(x: -80, y: 100) // optional
-                
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width * 0.9)
-                    .padding(.top, 60)
-            }
-            VStack(spacing: 12) {
+        VStack(spacing: 16) {
+            
+            Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .padding(.horizontal, 20)
+                .offset(y:UIScreen.main.bounds.height*0.1)
+
+            VStack(alignment: .center, spacing: 12) {
                 Text(title)
                     .scaledFont(.cereal(32, weight: .bold))
                     .multilineTextAlignment(.center)
-                
+
                 Text(subtitle)
                     .scaledFont(.cereal(16, weight: .medium))
                     .multilineTextAlignment(.center)
                     .foregroundColor(.gray)
             }
+            .frame(maxWidth: .infinity)
             .padding(.horizontal, 20)
-            
-            Spacer()
-        }
+           
+        } .offset(y: -40)
+        .padding(.bottom, 80)
+        
+
     }
 }
 

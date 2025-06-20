@@ -32,6 +32,7 @@ struct SignInView: View {
                 Image(systemName: "chevron.left")
                     .foregroundColor(.lightSubText)
                     .padding()
+                    
             }
             .padding(.top, UIScreen.main.bounds.height * 0.01)
             .padding(.leading, UIScreen.main.bounds.width *

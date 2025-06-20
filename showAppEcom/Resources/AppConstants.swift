@@ -10,7 +10,7 @@ import Foundation
 struct AppConstants {
     
     struct Titles {
-        static let appName = "OxyBoots"
+        static let appName = "OxyBootsss"
         static let welcomeTitle = "Welcome to Herogram!"
         static let loginTitle = "Sign In"
     }

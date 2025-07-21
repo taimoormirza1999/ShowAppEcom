@@ -1,12 +1,5 @@
-//
-//  CustomButton.swift
-//  showAppEcom
-//
-//  Created by Taimoor Hamza on 18/06/2025.
-//
 
 import SwiftUI
-
 struct CustomButton: View {
     let title: String
     let backgroundColor: Color

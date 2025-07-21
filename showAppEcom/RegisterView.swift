@@ -21,7 +21,6 @@ struct RegisterView: View {
             Color.lightFrameColor.ignoresSafeArea()
             
             Button(action: {
-                // your action
             }) {
                 Image(systemName: "chevron.left")
                     .foregroundColor(.lightSubText)

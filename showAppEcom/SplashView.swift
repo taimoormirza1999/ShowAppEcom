@@ -19,7 +19,6 @@ struct SplashView: View {
                 // Overlay layer
                 Color.black.opacity(0.1)
                     .ignoresSafeArea()
-
                 // Animated logo/title
                 VStack {
                     Text(AppConstants.Titles.appName)

@@ -11,8 +11,6 @@ import SwiftUI
 struct showAppEcomApp: App {
     var body: some Scene {
         WindowGroup {
-            
-//            ContentView()
             SplashView()
         }
     }

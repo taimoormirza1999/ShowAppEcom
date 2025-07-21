@@ -12,62 +12,68 @@ struct OnboardingView: View {
     @State private var isOnboardingComplete = false
     
     var body: some View {
-        if isOnboardingComplete {
-            SignInView()
-        } else {
+        NavigationStack {
             ZStack {
+              
+                  
                 TabView(selection: $selectedTab) {
+          
                     OnboardingPage(
                         title: AppConstants.Onboarding.title1,
                         subtitle: AppConstants.Onboarding.subtitle1,
-                        imageName: "shoe1"
+                        imageName: "shoe1",
+                        selectedTab: $selectedTab,
+                        isOnboardingComplete: $isOnboardingComplete
                     )
                     .tag(0)
                     
                     OnboardingPage(
                         title: AppConstants.Onboarding.title2,
                         subtitle: AppConstants.Onboarding.subtitle2,
-                        imageName: "shoe2"
+                        imageName: "shoe2",
+                        selectedTab: $selectedTab,
+                        isOnboardingComplete: $isOnboardingComplete
                     )
                     .tag(1)
                     
                     OnboardingPage(
                         title: AppConstants.Onboarding.title3,
                         subtitle: AppConstants.Onboarding.subtitle3,
-                        imageName: "shoe3"
+                        imageName: "shoe3",
+                        selectedTab: $selectedTab,
+                        isOnboardingComplete: $isOnboardingComplete
                     )
                     .tag(2)
                 }
                 .tabViewStyle(PageTabViewStyle())
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 .padding(.bottom, 40)
-                
                 VStack {
-                    Spacer()
-                    if selectedTab == 2 {
-                        CustomButton(
-                            title: AppConstants.Buttons.getStarted,
-                            backgroundColor: .primary,
-                            foregroundColor: .white
-                        ) {
-                            withAnimation {
-                                isOnboardingComplete = true
-                            }
+                    HStack {
+                        Button(action: {
+                            print("🪵 Back Button Tapped")
+                            isOnboardingComplete = true
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(Color.white)
+                                .clipShape(Circle())
                         }
-                    } else {
-                        CustomButton(
-                            title: AppConstants.Buttons.next,
-                            backgroundColor:.primary,
-                            foregroundColor: .white
-                        ) {
-                            withAnimation {
-                                selectedTab += 1
-                            }
-                        }
+                        Spacer()
                     }
+                    .padding(.horizontal, UIScreen.main.bounds.width * 0.04)
+                    .padding(.top, UIScreen.main.bounds.height * 0.0)
+
+                    Spacer()
                 }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 80)
+
+                
+                NavigationLink(destination: SignInView(), isActive: $isOnboardingComplete) {
+                    EmptyView()
+                }.hidden()
+                .navigationBarBackButtonHidden(true)
+               
             }
         }
     }
@@ -77,7 +83,8 @@ struct OnboardingPage: View {
     let title: String
     let subtitle: String
     let imageName: String
-    
+    @Binding var selectedTab: Int
+    @Binding var isOnboardingComplete: Bool
     var body: some View {
         VStack(spacing: 16) {
             
@@ -99,9 +106,28 @@ struct OnboardingPage: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 20)
+            
+//            Custom Buttons
+            CustomButton(
+                                     title: AppConstants.Buttons.getStarted,
+                                     backgroundColor: .primary,
+                                     foregroundColor: .white
+                                 ) {
+                                     withAnimation {
+                                         if(selectedTab == 2){
+                                             isOnboardingComplete = true
+                                             print("🎉 Onboarding Complete Triggered")
+                                         }else{
+                                             selectedTab += 1
+                                             print("👉 Selected Tab: \(selectedTab)")
+                                         }
+                                     }
+                                 }
            
         } .offset(y: -40)
-        .padding(.bottom, 80)
+           .padding(.horizontal, 20)
+           .padding(.vertical,10)
+        
         
 
     }
